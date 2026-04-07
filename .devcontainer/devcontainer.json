@@ -1,0 +1,30 @@
+{
+    "name": "pwp dev environment",
+    "image": "hansicecream/apu-pwp:v1",
+    "workspaceFolder": "/workspace",
+    "mounts": [
+        "source=${localWorkspaceFolder}/workspace,target=/workspace,type=bind",
+        "source=${localWorkspaceFolder}/labs,target=/labs,type=bind",
+        "source=${localWorkspaceFolder}/tests,target=/tests,type=bind"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "github.github-vscode-theme"
+            ],
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.testing.pytestEnabled": true,
+                "python.testing.pytestArgs": [
+                    "/tests"
+                ],
+                "workbench.colorTheme": "GitHub Dark Default",
+                "terminal.integrated.defaultProfile.linux": "bash"
+            }
+        }
+    },
+    "postCreateCommand": "echo 'Python dev environment ready'",
+    "remoteUser": "root"
+}
